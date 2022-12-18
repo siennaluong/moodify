@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'add.css' %}"/>
+<div class="'para">
+    <h1>From our conversation today, we predicted that your dominant moode today is: {{mood}}</h1>
+
+    {% if mood != 'joy' %}
+        <p>I know you have heard us say this too many times, but remember, negative emotions are parts of normal life! Plus, whatever you are feeling right now is just temporary!</p>
+
+        <p>So don't get too consumed by the emotions! Instead, visit your tool box to see how you can take a break from it! When you feel better, reflect on your emotion and maybe you will see a perspective you have never seen before!</p>
+
+        <strong>And remember, we always have your back!</strong>
+    {% else %}
+        <p>Today seems like such a good day for you! We are glad you are enjoying life to the fullest</p>
+
+        <p>However, to keep up with this streak of happy days, remember to practice your mental health tool box today. We highly recommend yoga as a good way to end the day</p>
+        <strong>And remember, come to us if you need any help! We always have your back!</strong>
+    {% endif %}
+</div>
+{% endblock %}

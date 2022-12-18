@@ -1,0 +1,53 @@
+/* (A) LIST VIEW BY DEFAULT */
+#lgDemo {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 5px;
+  }
+  #lgDemo .item {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  #lgDemo .item:nth-child(odd) { background: #f7f7f7; }
+  
+  /* (B) TRANSFORM INTO GRID VIEW */
+  #lgDemo.grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #lgDemo.grid .item:nth-child(odd) { background: none; }
+  
+  /* (C) COSMETICS */
+  #lgSwitches { margin-bottom: 20px; }
+  #lgSwitches button {
+    font-size: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    border: 0;
+    background: #1e45b3;
+    cursor: pointer;
+  }
+  
+  
+  /* (X) DOES NOT MATTER */
+  /* PAGE & BODY */
+  * {
+    font-family: arial, sans-serif;
+    box-sizing: border-box;
+  }
+  body {
+    display: flex;
+    align-items: center; justify-content: center;
+    min-height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1615714735036-c8bdfa7f1a2c?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NTc1ODA5NA&ixlib=rb-1.2.1&q=85);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  /* WIDGET */
+  .widget-wrap {
+    min-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  /* SVG */

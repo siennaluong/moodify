@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% load static %}
+<!DOCTYPE html>
+{% block content %}
+<html>
+	<link rel="stylesheet" href="{% static 'main.css' %}">
+<body>
+<body>
+	
+	<div id="container">
+		<aside>
+			<header>
+				<input type="text" placeholder="search">
+			</header>
+			<ul>
+				<li>
+					<div>
+						<h2>Yesterday</h2>
+						<h3>Mood: joy</h3>
+					</div>
+				</li>
+				
+			</ul>
+		</aside>
+		<main>
+			<header>
+				<div>
+					<strong>Today check in</strong>
+					<p>Type "hi" to start, "exit" to end the chat</p>
+				</div>
+			</header>
+			<ul id="chat">
+			{% for chat in object_list %}
+				{% if chat.user == 'H' %}
+				<li class="me">
+					<div class="entete">
+						<h3>{{chat.date_created}}</h3>
+						<h2>{{chat.user}}</h2>
+						<span class="status blue"></span>
+					</div>
+					<div class="triangle"></div>
+					<div class="message">
+						{{chat.message}}
+					</div>
+				</li>
+				{% elif chat.user == 'B' %}
+				<li class="you">
+					<div class="entete">
+						<span class="status green"></span>
+						<h2>{{chat.user}}</h2>
+						<h3>{{chat.date_created}}</h3>
+					</div>
+					<div class="triangle"></div>
+					<div class="message">
+						{{chat.message}}
+					</div>
+					
+				</li>
+				{% endif %}
+			{% endfor %}
+			</ul>
+			<footer>
+				<form method="post">
+					{% csrf_token %}
+					{{ form }}
+					<input type="submit" value="Send">
+				</form>
+				
+			</footer>
+		</main>
+	</div>
+</body>
+</html>
+{% endblock %}

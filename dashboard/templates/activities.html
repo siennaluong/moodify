@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'grid.css' %}"/>
+<script src="{% static 'grid.js' %}"></script>
+
+<div class="widget-wrap">
+    <div id="grid"></div>
+    
+    <!-- (A) VIEW SWITCHER -->
+    <h1>Your mental tool box</h1>
+    <div id="lgSwitches">
+      <button id="sList">&#8863;</button>
+      <button id="sGrid">&#8862;</button>
+      <form style="display: inline;">
+        <button formaction="{% url 'add' %}">&#43;</button>
+      </form>
+    </div>
+   
+    <!-- (B) ITEMS LIST/GRID -->
+    <div id="lgDemo">
+        {% for i in object_list %}
+            <div class="item"><h3>{{i.title}} </h3><br>
+            <p>{{i.description}}</p></div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
